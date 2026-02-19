@@ -6,16 +6,12 @@ from unittest.mock import AsyncMock, Mock, patch
 import pytest
 from homeassistant.core import HomeAssistant
 from homeassistant.util import dt as dt_util
-from homeassistant.helpers.frame import _hass
 
-from custom_components.rce_pse.coordinator import RCEPSEDataUpdateCoordinator
+from custom_components.rce_prices.coordinator import RCEPSEDataUpdateCoordinator
 
 
 @pytest.fixture
 def mock_hass():
-    if _hass.hass is None:
-        _hass.hass = Mock(spec=HomeAssistant)
-    
     hass = Mock(spec=HomeAssistant)
     hass.config = Mock()
     hass.config.time_zone = "Europe/Warsaw"

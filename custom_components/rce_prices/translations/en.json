@@ -2,8 +2,8 @@
     "config": {
         "step": {
             "user": {
-                "title": "RCE PSE Configuration",
-                "description": "Set up the RCE PSE integration",
+                "title": "RCE Prices Configuration",
+                "description": "Set up the RCE Prices integration",
                 "data": {
                     "cheapest_time_window_start": "Cheapest - time window start (hour)",
                     "cheapest_time_window_end": "Cheapest - time window end (hour)",
@@ -28,14 +28,14 @@
             "invalid_time_window": "Start hour must be earlier than end hour"
         },
         "abort": {
-            "single_instance_allowed": "Only a single configuration of RCE PSE is allowed."
+            "single_instance_allowed": "Only a single configuration of RCE Prices is allowed."
         }
     },
     "options": {
         "step": {
             "init": {
-                "title": "RCE PSE Settings",
-                "description": "Modify RCE PSE integration settings",
+                "title": "RCE Prices Settings",
+                "description": "Modify RCE Prices integration settings",
                 "data": {
                     "cheapest_time_window_start": "Cheapest - time window start (hour)",
                     "cheapest_time_window_end": "Cheapest - time window end (hour)",
@@ -62,213 +62,213 @@
     },
     "entity": {
         "sensor": {
-            "rce_pse_today_price": {
+            "rce_prices_today_price": {
                 "name": "Price"
             },
-            "rce_pse_today_kwh_price": {
+            "rce_prices_today_kwh_price": {
                 "name": "Price per kWh"
             },
-            "rce_pse_next_hour_price": {
+            "rce_prices_next_hour_price": {
                 "name": "Next Hour Price"
             },
-            "rce_pse_next_2_hours_price": {
+            "rce_prices_next_2_hours_price": {
                 "name": "Price in 2 Hours"
             },
-            "rce_pse_next_3_hours_price": {
+            "rce_prices_next_3_hours_price": {
                 "name": "Price in 3 Hours"
             },
-            "rce_pse_previous_hour_price": {
+            "rce_prices_previous_hour_price": {
                 "name": "Previous Hour Price"
             },
-            "rce_pse_today_avg_price": {
+            "rce_prices_today_avg_price": {
                 "name": "Today Average Price"
             },
-            "rce_pse_today_max_price": {
+            "rce_prices_today_max_price": {
                 "name": "Today Maximum Price"
             },
-            "rce_pse_today_min_price": {
+            "rce_prices_today_min_price": {
                 "name": "Today Minimum Price"
             },
-            "rce_pse_today_median_price": {
+            "rce_prices_today_median_price": {
                 "name": "Today Median Price"
             },
-            "rce_pse_today_current_vs_average": {
+            "rce_prices_today_current_vs_average": {
                 "name": "Today Current vs Average"
             },
-            "rce_pse_today_morning_best_price": {
+            "rce_prices_today_morning_best_price": {
                 "name": "Today Morning Best Price"
             },
-            "rce_pse_today_morning_2nd_best_price": {
+            "rce_prices_today_morning_2nd_best_price": {
                 "name": "Today Morning 2nd Best Price"
             },
-            "rce_pse_today_morning_best_price_start_timestamp": {
+            "rce_prices_today_morning_best_price_start_timestamp": {
                 "name": "Today Morning Best Price Start Timestamp"
             },
-            "rce_pse_today_morning_2nd_best_price_start_timestamp": {
+            "rce_prices_today_morning_2nd_best_price_start_timestamp": {
                 "name": "Today Morning 2nd Best Price Start Timestamp"
             },
-            "rce_pse_today_evening_best_price": {
+            "rce_prices_today_evening_best_price": {
                 "name": "Today Evening Best Price"
             },
-            "rce_pse_today_evening_2nd_best_price": {
+            "rce_prices_today_evening_2nd_best_price": {
                 "name": "Today Evening 2nd Best Price"
             },
-            "rce_pse_today_evening_best_price_start_timestamp": {
+            "rce_prices_today_evening_best_price_start_timestamp": {
                 "name": "Today Evening Best Price Start Timestamp"
             },
-            "rce_pse_today_evening_2nd_best_price_start_timestamp": {
+            "rce_prices_today_evening_2nd_best_price_start_timestamp": {
                 "name": "Today Evening 2nd Best Price Start Timestamp"
             },
-            "rce_pse_today_max_price_hour_start": {
+            "rce_prices_today_max_price_hour_start": {
                 "name": "Today Max Price Hour Start"
             },
-            "rce_pse_today_max_price_hour_end": {
+            "rce_prices_today_max_price_hour_end": {
                 "name": "Today Max Price Hour End"
             },
-            "rce_pse_today_min_price_hour_start": {
+            "rce_prices_today_min_price_hour_start": {
                 "name": "Today Min Price Hour Start"
             },
-            "rce_pse_today_min_price_hour_end": {
+            "rce_prices_today_min_price_hour_end": {
                 "name": "Today Min Price Hour End"
             },
-            "rce_pse_today_min_price_range": {
+            "rce_prices_today_min_price_range": {
                 "name": "Today Cheapest Time Range"
             },
-            "rce_pse_today_max_price_range": {
+            "rce_prices_today_max_price_range": {
                 "name": "Today Most Expensive Time Range"
             },
-            "rce_pse_tomorrow_price": {
+            "rce_prices_tomorrow_price": {
                 "name": "Tomorrow Price"
             },
-            "rce_pse_tomorrow_avg_price": {
+            "rce_prices_tomorrow_avg_price": {
                 "name": "Tomorrow Average Price"
             },
-            "rce_pse_tomorrow_max_price": {
+            "rce_prices_tomorrow_max_price": {
                 "name": "Tomorrow Maximum Price"
             },
-            "rce_pse_tomorrow_min_price": {
+            "rce_prices_tomorrow_min_price": {
                 "name": "Tomorrow Minimum Price"
             },
-            "rce_pse_tomorrow_median_price": {
+            "rce_prices_tomorrow_median_price": {
                 "name": "Tomorrow Median Price"
             },
-            "rce_pse_tomorrow_vs_today_avg": {
+            "rce_prices_tomorrow_vs_today_avg": {
                 "name": "Tomorrow vs Today Average"
             },
-            "rce_pse_tomorrow_max_price_hour_start": {
+            "rce_prices_tomorrow_max_price_hour_start": {
                 "name": "Tomorrow Max Price Hour Start"
             },
-            "rce_pse_tomorrow_max_price_hour_end": {
+            "rce_prices_tomorrow_max_price_hour_end": {
                 "name": "Tomorrow Max Price Hour End"
             },
-            "rce_pse_tomorrow_min_price_hour_start": {
+            "rce_prices_tomorrow_min_price_hour_start": {
                 "name": "Tomorrow Min Price Hour Start"
             },
-            "rce_pse_tomorrow_min_price_hour_end": {
+            "rce_prices_tomorrow_min_price_hour_end": {
                 "name": "Tomorrow Min Price Hour End"
             },
-            "rce_pse_tomorrow_min_price_range": {
+            "rce_prices_tomorrow_min_price_range": {
                 "name": "Tomorrow Cheapest Time Range"
             },
-            "rce_pse_tomorrow_max_price_range": {
+            "rce_prices_tomorrow_max_price_range": {
                 "name": "Tomorrow Most Expensive Time Range"
             },
-            "rce_pse_today_cheapest_window_start": {
+            "rce_prices_today_cheapest_window_start": {
                 "name": "Today Custom Cheapest Window Start"
             },
-            "rce_pse_today_cheapest_window_end": {
+            "rce_prices_today_cheapest_window_end": {
                 "name": "Today Custom Cheapest Window End"
             },
-            "rce_pse_today_cheapest_window_range": {
+            "rce_prices_today_cheapest_window_range": {
                 "name": "Today Custom Cheapest Window"
             },
-            "rce_pse_today_expensive_window_start": {
+            "rce_prices_today_expensive_window_start": {
                 "name": "Today Custom Most Expensive Window Start"
             },
-            "rce_pse_today_expensive_window_end": {
+            "rce_prices_today_expensive_window_end": {
                 "name": "Today Custom Most Expensive Window End"
             },
-            "rce_pse_today_expensive_window_range": {
+            "rce_prices_today_expensive_window_range": {
                 "name": "Today Custom Most Expensive Window"
             },
-            "rce_pse_tomorrow_cheapest_window_start": {
+            "rce_prices_tomorrow_cheapest_window_start": {
                 "name": "Tomorrow Custom Cheapest Window Start"
             },
-            "rce_pse_tomorrow_cheapest_window_end": {
+            "rce_prices_tomorrow_cheapest_window_end": {
                 "name": "Tomorrow Custom Cheapest Window End"
             },
-            "rce_pse_tomorrow_cheapest_window_range": {
+            "rce_prices_tomorrow_cheapest_window_range": {
                 "name": "Tomorrow Custom Cheapest Window"
             },
-            "rce_pse_tomorrow_expensive_window_start": {
+            "rce_prices_tomorrow_expensive_window_start": {
                 "name": "Tomorrow Custom Most Expensive Window Start"
             },
-            "rce_pse_tomorrow_expensive_window_end": {
+            "rce_prices_tomorrow_expensive_window_end": {
                 "name": "Tomorrow Custom Most Expensive Window End"
             },
-            "rce_pse_tomorrow_expensive_window_range": {
+            "rce_prices_tomorrow_expensive_window_range": {
                 "name": "Custom Expensive Window Tomorrow"
             },
-            "rce_pse_today_cheapest_window_start_timestamp": {
+            "rce_prices_today_cheapest_window_start_timestamp": {
                 "name": "Custom Cheapest Window Start Timestamp Today"
             },
-            "rce_pse_today_cheapest_window_end_timestamp": {
+            "rce_prices_today_cheapest_window_end_timestamp": {
                 "name": "Custom Cheapest Window End Timestamp Today"
             },
-            "rce_pse_today_expensive_window_start_timestamp": {
+            "rce_prices_today_expensive_window_start_timestamp": {
                 "name": "Custom Expensive Window Start Timestamp Today"
             },
-            "rce_pse_today_expensive_window_end_timestamp": {
+            "rce_prices_today_expensive_window_end_timestamp": {
                 "name": "Custom Expensive Window End Timestamp Today"
             },
-            "rce_pse_tomorrow_cheapest_window_start_timestamp": {
+            "rce_prices_tomorrow_cheapest_window_start_timestamp": {
                 "name": "Custom Cheapest Window Start Timestamp Tomorrow"
             },
-            "rce_pse_tomorrow_cheapest_window_end_timestamp": {
+            "rce_prices_tomorrow_cheapest_window_end_timestamp": {
                 "name": "Custom Cheapest Window End Timestamp Tomorrow"
             },
-            "rce_pse_tomorrow_expensive_window_start_timestamp": {
+            "rce_prices_tomorrow_expensive_window_start_timestamp": {
                 "name": "Custom Expensive Window Start Timestamp Tomorrow"
             },
-            "rce_pse_tomorrow_expensive_window_end_timestamp": {
+            "rce_prices_tomorrow_expensive_window_end_timestamp": {
                 "name": "Custom Expensive Window End Timestamp Tomorrow"
             },
-            "rce_pse_today_max_price_hour_start_timestamp": {
+            "rce_prices_today_max_price_hour_start_timestamp": {
                 "name": "Today Max Price Hour Start Timestamp"
             },
-            "rce_pse_today_max_price_hour_end_timestamp": {
+            "rce_prices_today_max_price_hour_end_timestamp": {
                 "name": "Today Max Price Hour End Timestamp"
             },
-            "rce_pse_today_min_price_hour_start_timestamp": {
+            "rce_prices_today_min_price_hour_start_timestamp": {
                 "name": "Today Min Price Hour Start Timestamp"
             },
-            "rce_pse_today_min_price_hour_end_timestamp": {
+            "rce_prices_today_min_price_hour_end_timestamp": {
                 "name": "Today Min Price Hour End Timestamp"
             },
-            "rce_pse_tomorrow_max_price_hour_start_timestamp": {
+            "rce_prices_tomorrow_max_price_hour_start_timestamp": {
                 "name": "Tomorrow Max Price Hour Start Timestamp"
             },
-            "rce_pse_tomorrow_max_price_hour_end_timestamp": {
+            "rce_prices_tomorrow_max_price_hour_end_timestamp": {
                 "name": "Tomorrow Max Price Hour End Timestamp"
             },
-            "rce_pse_tomorrow_min_price_hour_start_timestamp": {
+            "rce_prices_tomorrow_min_price_hour_start_timestamp": {
                 "name": "Tomorrow Min Price Hour Start Timestamp"
             },
-            "rce_pse_tomorrow_min_price_hour_end_timestamp": {
+            "rce_prices_tomorrow_min_price_hour_end_timestamp": {
                 "name": "Tomorrow Min Price Hour End Timestamp"
             }
         },
         "binary_sensor": {
-            "rce_pse_today_min_price_window_active": {
+            "rce_prices_today_min_price_window_active": {
                 "name": "Today Cheapest Window Active"
             },
-            "rce_pse_today_max_price_window_active": {
+            "rce_prices_today_max_price_window_active": {
                 "name": "Today Most Expensive Window Active"
             },
-            "rce_pse_today_cheapest_window_active": {
+            "rce_prices_today_cheapest_window_active": {
                 "name": "Today Custom Cheapest Window Active"
             },
-            "rce_pse_today_expensive_window_active": {
+            "rce_prices_today_expensive_window_active": {
                 "name": "Today Custom Most Expensive Window Active"
             }
         }

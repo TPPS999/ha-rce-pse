@@ -92,10 +92,10 @@ class RCEConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     async def async_step_user(
         self, user_input: dict[str, any] | None = None
     ) -> FlowResult:
-        _LOGGER.debug("Starting RCE PSE config flow")
+        _LOGGER.debug("Starting RCE Prices config flow")
         
         if self._async_current_entries():
-            _LOGGER.debug("RCE PSE integration already configured, aborting")
+            _LOGGER.debug("RCE Prices integration already configured, aborting")
             return self.async_abort(reason="single_instance_allowed")
 
         errors = {}
@@ -111,12 +111,12 @@ class RCEConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             elif expensive_start >= expensive_end:
                 errors["base"] = "invalid_time_window"
             else:
-                _LOGGER.debug("Creating RCE PSE config entry with options: %s", user_input)
-                await self.async_set_unique_id("rce_pse")
+                _LOGGER.debug("Creating RCE Prices config entry with options: %s", user_input)
+                await self.async_set_unique_id("rce_prices")
                 self._abort_if_unique_id_configured()
-                return self.async_create_entry(title="RCE PSE", data=user_input)
+                return self.async_create_entry(title="RCE Prices", data=user_input)
 
-        _LOGGER.debug("Showing RCE PSE configuration form")
+        _LOGGER.debug("Showing RCE Prices configuration form")
         return self.async_show_form(
             step_id="user", 
             data_schema=CONFIG_SCHEMA,
@@ -142,7 +142,7 @@ class RCEOptionsFlow(config_entries.OptionsFlow):
             elif expensive_start >= expensive_end:
                 errors["base"] = "invalid_time_window"
             else:
-                _LOGGER.debug("Updating RCE PSE options: %s", user_input)
+                _LOGGER.debug("Updating RCE Prices options: %s", user_input)
                 return self.async_create_entry(title="", data=user_input)
 
         current_data = self.config_entry.options if self.config_entry.options else self.config_entry.data

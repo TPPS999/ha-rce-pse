@@ -3,9 +3,9 @@ from __future__ import annotations
 from datetime import timedelta
 from typing import Final
 
-DOMAIN: Final[str] = "rce_pse"
-SENSOR_PREFIX: Final[str] = "RCE PSE"
-MANUFACTURER: Final[str] = "Lewa-Reka"
+DOMAIN: Final[str] = "rce_prices"
+SENSOR_PREFIX: Final[str] = "RCE Prices"
+MANUFACTURER: Final[str] = "plebann"
 PSE_API_URL: Final[str] = "https://api.raporty.pse.pl/api/rce-pln"
 API_UPDATE_INTERVAL: Final[timedelta] = timedelta(minutes=30)
 API_SELECT: Final[str] = "dtime,period,rce_pln,business_date,publication_ts"

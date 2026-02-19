@@ -15,17 +15,17 @@ if TYPE_CHECKING:
 class RCEBaseCommonEntity(CoordinatorEntity):
     def __init__(self, coordinator: RCEPSEDataUpdateCoordinator, unique_id: str) -> None:
         super().__init__(coordinator)
-        self._attr_unique_id = f"rce_pse_{unique_id}"
+        self._attr_unique_id = f"rce_prices_{unique_id}"
         self._attr_has_entity_name = True
-        self._attr_translation_key = f"rce_pse_{unique_id}"
+        self._attr_translation_key = f"rce_prices_{unique_id}"
         self.calculator = PriceCalculator()
 
     @property
     def device_info(self):
         return {
-            "identifiers": {(DOMAIN, "rce_pse")},
-            "name": "RCE PSE",
-            "model": "RCE PSE",
+            "identifiers": {(DOMAIN, "rce_prices")},
+            "name": "RCE Prices",
+            "model": "RCE Prices",
             "entry_type": "service",
             "manufacturer": MANUFACTURER,
         }

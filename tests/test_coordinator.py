@@ -8,8 +8,8 @@ import pytest
 from homeassistant.helpers.update_coordinator import UpdateFailed
 from homeassistant.util import dt as dt_util
 
-from custom_components.rce_pse.coordinator import RCEPSEDataUpdateCoordinator
-from custom_components.rce_pse.const import CONF_USE_HOURLY_PRICES
+from custom_components.rce_prices.coordinator import RCEPSEDataUpdateCoordinator
+from custom_components.rce_prices.const import CONF_USE_HOURLY_PRICES
 
 
 class TestRCEPSEDataUpdateCoordinator:
@@ -19,7 +19,7 @@ class TestRCEPSEDataUpdateCoordinator:
         coordinator = RCEPSEDataUpdateCoordinator(mock_hass)
         
         assert coordinator.hass == mock_hass
-        assert coordinator.name == "rce_pse"
+        assert coordinator.name == "rce_prices"
         assert coordinator.update_interval.total_seconds() == 1800
         assert coordinator.session is None
 
@@ -47,7 +47,7 @@ class TestRCEPSEDataUpdateCoordinator:
         coordinator = RCEPSEDataUpdateCoordinator(mock_hass)
         assert coordinator.session is None
         
-        with patch("custom_components.rce_pse.coordinator.aiohttp.ClientSession") as mock_session_class:
+        with patch("custom_components.rce_prices.coordinator.aiohttp.ClientSession") as mock_session_class:
             mock_session = AsyncMock()
             mock_session_class.return_value = mock_session
             

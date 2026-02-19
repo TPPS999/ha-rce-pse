@@ -1,11 +1,11 @@
-# RCE PSE Integration for Home Assistant - API v2 ready
+# RCE Prices Integration for Home Assistant - API v2 ready
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-blue.svg?style=for-the-badge)](https://github.com/hacs/integration)
-![GitHub Release](https://img.shields.io/github/v/release/lewa-reka/ha-rce-pse?style=for-the-badge)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/lewa-reka/ha-rce-pse/tests.yml?style=for-the-badge)
-[![hacs_downloads](https://img.shields.io/github/downloads/lewa-reka/ha-rce-pse/latest/total?style=for-the-badge)](https://github.com/lewa-reka/ha-rce-pse/releases/latest)
-![GitHub License](https://img.shields.io/github/license/lewa-reka/ha-rce-pse?style=for-the-badge)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/y/lewa-reka/ha-rce-pse?style=for-the-badge)
+![GitHub Release](https://img.shields.io/github/v/release/plebann/ha-rce-pse?style=for-the-badge)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/plebann/ha-rce-pse/tests.yml?style=for-the-badge)
+[![hacs_downloads](https://img.shields.io/github/downloads/plebann/ha-rce-pse/latest/total?style=for-the-badge)](https://github.com/plebann/ha-rce-pse/releases/latest)
+![GitHub License](https://img.shields.io/github/license/plebann/ha-rce-pse?style=for-the-badge)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/plebann/ha-rce-pse?style=for-the-badge)
 ![Maintenance](https://img.shields.io/maintenance/yes/2025?style=for-the-badge)
 
 
@@ -13,30 +13,32 @@
 
 A Home Assistant integration for monitoring Polish electricity market prices (RCE - Rynkowa Cena Energii) from PSE (Polskie Sieci Elektroenergetyczne).
 
+> This project is a fork of [lewa-reka/ha-rce-pse](https://github.com/lewa-reka/ha-rce-pse), developed independently as **RCE Prices** (`rce_prices`).
+
 Instalation & Presentation: https://youtu.be/6N71uXgf9yc
 
 ## Installation
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Lewa-Reka&repository=ha-rce-pse&category=integration)
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=plebann&repository=ha-rce-pse&category=integration)
 
 ### HACS (Recommended)
 
 1. Open HACS in Home Assistant
-2. Search for **"RCE PSE"**
+2. Search for **"RCE Prices"**
 3. DOWNLOAD the integration
 4. Restart Home Assistant
 
 ### Manual Installation
 
-1. Copy the `custom_components/rce_pse` folder to your Home Assistant `custom_components` directory
+1. Copy the `custom_components/rce_prices` folder to your Home Assistant `custom_components` directory
 2. Restart Home Assistant
 
 ### Initial Setup
 
-[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=rce_pse)
+[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=rce_prices)
 
 1. Go to **Settings** > **Integrations**
-2. Click **Add Integration** and search for "RCE PSE"
+2. Click **Add Integration** and search for "RCE Prices"
 3. Configure the time window settings (see below)
 4. Click **Submit** to complete the setup
 
@@ -141,7 +143,7 @@ This advanced option is useful for net-billing settlements due to prosumer meter
 You can modify these settings at any time:
 
 1. Go to **Configuration** > **Integrations**
-2. Find "RCE PSE" in your integrations list
+2. Find "RCE Prices" in your integrations list
 3. Click **Configure** 
 4. Adjust the settings as needed
 5. Click **Submit** to apply changes
@@ -255,13 +257,13 @@ Based on your configuration settings, these sensors indicate whether you are cur
 
 ## Debugging
 
-To enable debug logging for the RCE PSE integration, add the following to your Home Assistant `configuration.yaml`:
+To enable debug logging for the RCE Prices integration, add the following to your Home Assistant `configuration.yaml`:
 
 ```yaml
 logger:
   default: info
   logs:
-    custom_components.rce_pse: debug
+    custom_components.rce_prices: debug
 ```
 
 This will enable detailed logging for:
@@ -295,7 +297,8 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ### Apache 2.0 License
 
-Copyright 2025 Lewa-Reka and RCE PSE Integration Contributors
+Copyright 2025 Lewa-Reka and RCE PSE Integration Contributors (original work)
+Copyright 2026 plebann (fork modifications)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -6,11 +6,11 @@ from unittest.mock import Mock, patch
 import pytest
 from homeassistant.util import dt as dt_util
 
-from custom_components.rce_pse.binary_sensors.price_windows import (
+from custom_components.rce_prices.binary_sensors.price_windows import (
     RCETodayMinPriceWindowBinarySensor,
     RCETodayMaxPriceWindowBinarySensor,
 )
-from custom_components.rce_pse.binary_sensors.custom_windows import (
+from custom_components.rce_prices.binary_sensors.custom_windows import (
     RCETodayCheapestWindowBinarySensor,
     RCETodayExpensiveWindowBinarySensor,
 )
@@ -21,13 +21,13 @@ class TestTodayPriceWindowBinarySensors:
     def test_today_min_price_window_binary_sensor_initialization(self, mock_coordinator):
         sensor = RCETodayMinPriceWindowBinarySensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_today_min_price_window_active"
+        assert sensor._attr_unique_id == "rce_prices_today_min_price_window_active"
         assert sensor._attr_icon == "mdi:clock-check"
 
     def test_today_max_price_window_binary_sensor_initialization(self, mock_coordinator):
         sensor = RCETodayMaxPriceWindowBinarySensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_today_max_price_window_active"
+        assert sensor._attr_unique_id == "rce_prices_today_max_price_window_active"
         assert sensor._attr_icon == "mdi:clock-alert"
 
     def test_today_min_price_window_active_when_in_window(self, mock_coordinator):
@@ -145,14 +145,14 @@ class TestTodayCustomWindowBinarySensors:
         mock_config_entry = Mock()
         sensor = RCETodayCheapestWindowBinarySensor(mock_coordinator, mock_config_entry)
         
-        assert sensor._attr_unique_id == "rce_pse_today_cheapest_window_active"
+        assert sensor._attr_unique_id == "rce_prices_today_cheapest_window_active"
         assert sensor._attr_icon == "mdi:clock-check"
 
     def test_today_expensive_window_binary_sensor_initialization(self, mock_coordinator):
         mock_config_entry = Mock()
         sensor = RCETodayExpensiveWindowBinarySensor(mock_coordinator, mock_config_entry)
         
-        assert sensor._attr_unique_id == "rce_pse_today_expensive_window_active"
+        assert sensor._attr_unique_id == "rce_prices_today_expensive_window_active"
         assert sensor._attr_icon == "mdi:clock-alert"
 
     def test_today_cheapest_window_active_when_in_window(self, mock_coordinator):
@@ -297,7 +297,7 @@ class TestBinarySensorDeviceInfo:
             assert device_info["name"] == "RCE PSE"
             assert device_info["model"] == "RCE PSE"
             assert device_info["entry_type"] == "service"
-            assert ("rce_pse", "rce_pse") in device_info["identifiers"]
+            assert ("rce_prices", "rce_prices") in device_info["identifiers"]
 
     def test_custom_binary_sensor_device_info_consistency(self, mock_coordinator):
         mock_config_entry = Mock()
@@ -312,7 +312,7 @@ class TestBinarySensorDeviceInfo:
             assert device_info["name"] == "RCE PSE"
             assert device_info["model"] == "RCE PSE"
             assert device_info["entry_type"] == "service"
-            assert ("rce_pse", "rce_pse") in device_info["identifiers"]
+            assert ("rce_prices", "rce_prices") in device_info["identifiers"]
 
 
 class TestBinarySensorAvailability:

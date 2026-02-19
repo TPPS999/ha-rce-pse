@@ -6,9 +6,9 @@ import pytest
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 
-from custom_components.rce_pse import async_setup_entry, async_unload_entry
-from custom_components.rce_pse.config_flow import RCEConfigFlow
-from custom_components.rce_pse.const import DOMAIN
+from custom_components.rce_prices import async_setup_entry, async_unload_entry
+from custom_components.rce_prices.config_flow import RCEConfigFlow
+from custom_components.rce_prices.const import DOMAIN
 
 
 class TestRCEPSEIntegration:
@@ -19,7 +19,7 @@ class TestRCEPSEIntegration:
         mock_entry.runtime_data = None
         mock_entry.entry_id = "test_entry_id"
         
-        with patch("custom_components.rce_pse.RCEPSEDataUpdateCoordinator") as mock_coordinator_class:
+        with patch("custom_components.rce_prices.RCEPSEDataUpdateCoordinator") as mock_coordinator_class:
             mock_coordinator = Mock()
             mock_coordinator_class.return_value = mock_coordinator
             mock_coordinator.async_config_entry_first_refresh = AsyncMock()
@@ -141,27 +141,27 @@ class TestRCEPSEConfigFlow:
 class TestConstants:
 
     def test_domain_constant(self):
-        from custom_components.rce_pse.const import DOMAIN
-        assert DOMAIN == "rce_pse"
+        from custom_components.rce_prices.const import DOMAIN
+        assert DOMAIN == "rce_prices"
 
     def test_sensor_prefix_constant(self):
-        from custom_components.rce_pse.const import SENSOR_PREFIX
-        assert SENSOR_PREFIX == "RCE PSE"
+        from custom_components.rce_prices.const import SENSOR_PREFIX
+        assert SENSOR_PREFIX == "RCE Prices"
 
     def test_manufacturer_constant(self):
-        from custom_components.rce_pse.const import MANUFACTURER
-        assert MANUFACTURER == "Lewa-Reka"
+        from custom_components.rce_prices.const import MANUFACTURER
+        assert MANUFACTURER == "plebann"
 
     def test_api_url_constant(self):
-        from custom_components.rce_pse.const import PSE_API_URL
+        from custom_components.rce_prices.const import PSE_API_URL
         assert PSE_API_URL == "https://api.raporty.pse.pl/api/rce-pln"
 
     def test_update_interval_constant(self):
-        from custom_components.rce_pse.const import API_UPDATE_INTERVAL
+        from custom_components.rce_prices.const import API_UPDATE_INTERVAL
         assert API_UPDATE_INTERVAL.total_seconds() == 1800
 
     def test_api_parameters_constants(self):
-        from custom_components.rce_pse.const import API_SELECT, API_FIRST
+        from custom_components.rce_prices.const import API_SELECT, API_FIRST
         
         assert API_SELECT == "dtime,period,rce_pln,business_date,publication_ts"
         assert API_FIRST == 200 

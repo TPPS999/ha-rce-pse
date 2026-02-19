@@ -85,7 +85,7 @@ async def async_setup_entry(
     config_entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    _LOGGER.debug("Setting up RCE PSE sensors for config entry: %s", config_entry.entry_id)
+    _LOGGER.debug("Setting up RCE Prices sensors for config entry: %s", config_entry.entry_id)
     coordinator = hass.data[DOMAIN][config_entry.entry_id]
     
     sensors = [
@@ -156,6 +156,6 @@ async def async_setup_entry(
         RCETomorrowExpensiveWindowEndTimestampSensor(coordinator, config_entry),
     ]
     
-    _LOGGER.debug("Adding %d RCE PSE sensors to Home Assistant", len(sensors))
+    _LOGGER.debug("Adding %d RCE Prices sensors to Home Assistant", len(sensors))
     async_add_entities(sensors)
-    _LOGGER.debug("RCE PSE sensors setup completed successfully") 
+    _LOGGER.debug("RCE Prices sensors setup completed successfully") 

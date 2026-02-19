@@ -6,27 +6,27 @@ from unittest.mock import Mock, patch
 import pytest
 from homeassistant.util import dt as dt_util
 
-from custom_components.rce_pse.sensors.today_main import RCETodayMainSensor, RCETodayKwhPriceSensor
-from custom_components.rce_pse.sensors.tomorrow_main import RCETomorrowMainSensor
-from custom_components.rce_pse.sensors.today_stats import (
+from custom_components.rce_prices.sensors.today_main import RCETodayMainSensor, RCETodayKwhPriceSensor
+from custom_components.rce_prices.sensors.tomorrow_main import RCETomorrowMainSensor
+from custom_components.rce_prices.sensors.today_stats import (
     RCETodayAvgPriceSensor,
     RCETodayMaxPriceSensor,
     RCETodayMinPriceSensor,
     RCETodayMedianPriceSensor,
     RCETodayCurrentVsAverageSensor,
 )
-from custom_components.rce_pse.sensors.today_best_windows import (
+from custom_components.rce_prices.sensors.today_best_windows import (
     RCETodayMorningBestPriceSensor,
     RCETodayMorningSecondBestPriceSensor,
     RCETodayEveningSecondBestPriceSensor,
 )
-from custom_components.rce_pse.sensors.today_prices import (
+from custom_components.rce_prices.sensors.today_prices import (
     RCENextHourPriceSensor,
     RCENext2HoursPriceSensor,
     RCENext3HoursPriceSensor,
     RCEPreviousHourPriceSensor,
 )
-from custom_components.rce_pse.sensors.today_hours import (
+from custom_components.rce_prices.sensors.today_hours import (
     RCETodayMinPriceRangeSensor,
     RCETodayMaxPriceRangeSensor,
 )
@@ -37,7 +37,7 @@ class TestTodayMainSensors:
     def test_today_main_price_sensor_initialization(self, mock_coordinator):
         sensor = RCETodayMainSensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_today_price"
+        assert sensor._attr_unique_id == "rce_prices_today_price"
         assert sensor._attr_native_unit_of_measurement == "PLN/MWh"
         assert sensor._attr_icon == "mdi:cash"
 
@@ -62,7 +62,7 @@ class TestTodayMainSensors:
     def test_today_kwh_price_sensor_initialization(self, mock_coordinator):
         sensor = RCETodayKwhPriceSensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_today_kwh_price"
+        assert sensor._attr_unique_id == "rce_prices_today_kwh_price"
         assert sensor._attr_native_unit_of_measurement == "PLN/kWh"
         assert sensor._attr_icon == "mdi:cash"
 
@@ -111,7 +111,7 @@ class TestTodayStatsSensors:
     def test_today_average_price_sensor(self, mock_coordinator):
         sensor = RCETodayAvgPriceSensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_today_avg_price"
+        assert sensor._attr_unique_id == "rce_prices_today_avg_price"
         assert sensor._attr_native_unit_of_measurement == "PLN/MWh"
 
     def test_today_average_price_calculation(self, mock_coordinator):
@@ -131,7 +131,7 @@ class TestTodayStatsSensors:
     def test_today_max_price_sensor(self, mock_coordinator):
         sensor = RCETodayMaxPriceSensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_today_max_price"
+        assert sensor._attr_unique_id == "rce_prices_today_max_price"
 
     def test_today_max_price_calculation(self, mock_coordinator):
         sensor = RCETodayMaxPriceSensor(mock_coordinator)
@@ -149,7 +149,7 @@ class TestTodayStatsSensors:
     def test_today_min_price_sensor(self, mock_coordinator):
         sensor = RCETodayMinPriceSensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_today_min_price"
+        assert sensor._attr_unique_id == "rce_prices_today_min_price"
 
     def test_today_min_price_calculation(self, mock_coordinator):
         sensor = RCETodayMinPriceSensor(mock_coordinator)
@@ -167,7 +167,7 @@ class TestTodayStatsSensors:
     def test_today_median_price_sensor(self, mock_coordinator):
         sensor = RCETodayMedianPriceSensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_today_median_price"
+        assert sensor._attr_unique_id == "rce_prices_today_median_price"
 
     def test_today_median_price_calculation(self, mock_coordinator):
         sensor = RCETodayMedianPriceSensor(mock_coordinator)
@@ -185,7 +185,7 @@ class TestTodayStatsSensors:
     def test_today_current_vs_average_sensor(self, mock_coordinator):
         sensor = RCETodayCurrentVsAverageSensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_today_current_vs_average"
+        assert sensor._attr_unique_id == "rce_prices_today_current_vs_average"
         assert sensor._attr_native_unit_of_measurement == "%"
 
     def test_today_current_vs_average_calculation(self, mock_coordinator):
@@ -224,14 +224,14 @@ class TestTodayBestWindowPriceSensors:
     def test_today_morning_best_price_sensor_initialization(self, mock_coordinator):
         sensor = RCETodayMorningBestPriceSensor(mock_coordinator)
 
-        assert sensor._attr_unique_id == "rce_pse_today_morning_best_price"
+        assert sensor._attr_unique_id == "rce_prices_today_morning_best_price"
         assert sensor._attr_native_unit_of_measurement == "PLN/MWh"
         assert sensor._attr_icon == "mdi:cash"
 
     def test_today_evening_second_best_price_sensor_initialization(self, mock_coordinator):
         sensor = RCETodayEveningSecondBestPriceSensor(mock_coordinator)
 
-        assert sensor._attr_unique_id == "rce_pse_today_evening_2nd_best_price"
+        assert sensor._attr_unique_id == "rce_prices_today_evening_2nd_best_price"
         assert sensor._attr_native_unit_of_measurement == "PLN/MWh"
         assert sensor._attr_icon == "mdi:cash"
 
@@ -300,7 +300,7 @@ class TestTodayPriceSensors:
     def test_next_hour_price_sensor(self, mock_coordinator):
         sensor = RCENextHourPriceSensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_next_hour_price"
+        assert sensor._attr_unique_id == "rce_prices_next_hour_price"
         assert sensor._attr_native_unit_of_measurement == "PLN/MWh"
 
     def test_next_hour_price_calculation(self, mock_coordinator):
@@ -316,7 +316,7 @@ class TestTodayPriceSensors:
     def test_price_in_2_hours_sensor(self, mock_coordinator):
         sensor = RCENext2HoursPriceSensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_next_2_hours_price"
+        assert sensor._attr_unique_id == "rce_prices_next_2_hours_price"
 
     def test_price_in_2_hours_calculation(self, mock_coordinator):
         sensor = RCENext2HoursPriceSensor(mock_coordinator)
@@ -331,7 +331,7 @@ class TestTodayPriceSensors:
     def test_price_in_3_hours_sensor(self, mock_coordinator):
         sensor = RCENext3HoursPriceSensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_next_3_hours_price"
+        assert sensor._attr_unique_id == "rce_prices_next_3_hours_price"
 
     def test_price_in_3_hours_calculation(self, mock_coordinator):
         sensor = RCENext3HoursPriceSensor(mock_coordinator)
@@ -346,7 +346,7 @@ class TestTodayPriceSensors:
     def test_previous_hour_price_sensor(self, mock_coordinator):
         sensor = RCEPreviousHourPriceSensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_previous_hour_price"
+        assert sensor._attr_unique_id == "rce_prices_previous_hour_price"
         assert sensor._attr_native_unit_of_measurement == "PLN/MWh"
 
     def test_previous_hour_price_calculation(self, mock_coordinator):
@@ -424,7 +424,7 @@ class TestTodayRangeSensors:
     def test_today_min_price_range_sensor(self, mock_coordinator):
         sensor = RCETodayMinPriceRangeSensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_today_min_price_range"
+        assert sensor._attr_unique_id == "rce_prices_today_min_price_range"
         assert sensor._attr_icon == "mdi:clock-time-four"
 
     def test_today_min_price_range_calculation(self, mock_coordinator):
@@ -444,7 +444,7 @@ class TestTodayRangeSensors:
     def test_today_max_price_range_sensor(self, mock_coordinator):
         sensor = RCETodayMaxPriceRangeSensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_today_max_price_range"
+        assert sensor._attr_unique_id == "rce_prices_today_max_price_range"
         assert sensor._attr_icon == "mdi:clock-time-four"
 
     def test_today_max_price_range_calculation(self, mock_coordinator):
@@ -481,7 +481,7 @@ class TestTomorrowMainSensor:
         
         sensor = RCETomorrowMainSensor(mock_coordinator)
         
-        assert sensor._attr_unique_id == "rce_pse_tomorrow_price"
+        assert sensor._attr_unique_id == "rce_prices_tomorrow_price"
         assert sensor._attr_native_unit_of_measurement == "PLN/MWh"
         assert sensor._attr_icon == "mdi:cash"
 
@@ -490,11 +490,11 @@ class TestTomorrowMainSensor:
         
 
         with patch.object(sensor, 'is_tomorrow_data_available', return_value=False):
-            with patch('custom_components.rce_pse.sensors.base.RCEBaseSensor.available', new_callable=lambda: property(lambda self: True)):
+            with patch('custom_components.rce_prices.sensors.base.RCEBaseSensor.available', new_callable=lambda: property(lambda self: True)):
                 assert not sensor.available
         
         with patch.object(sensor, 'is_tomorrow_data_available', return_value=True):
-            with patch('custom_components.rce_pse.sensors.base.RCEBaseSensor.available', new_callable=lambda: property(lambda self: True)):
+            with patch('custom_components.rce_prices.sensors.base.RCEBaseSensor.available', new_callable=lambda: property(lambda self: True)):
                 assert sensor.available
 
     def test_tomorrow_price_returns_current_hour_price(self, mock_coordinator):

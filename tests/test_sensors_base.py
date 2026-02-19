@@ -9,9 +9,9 @@ from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-from custom_components.rce_pse.const import CONF_CHEAPEST_TIME_WINDOW_START, CONF_CHEAPEST_TIME_WINDOW_END, CONF_CHEAPEST_WINDOW_DURATION_HOURS
-from custom_components.rce_pse.sensors.base import PriceCalculator, RCEBaseSensor
-from custom_components.rce_pse.sensors.custom_windows import RCECustomWindowSensor
+from custom_components.rce_prices.const import CONF_CHEAPEST_TIME_WINDOW_START, CONF_CHEAPEST_TIME_WINDOW_END, CONF_CHEAPEST_WINDOW_DURATION_HOURS
+from custom_components.rce_prices.sensors.base import PriceCalculator, RCEBaseSensor
+from custom_components.rce_prices.sensors.custom_windows import RCECustomWindowSensor
 
 
 class TestPriceCalculator:
@@ -258,20 +258,20 @@ class TestRCEBaseSensor:
     def test_sensor_initialization(self, mock_coordinator):
         sensor = RCEBaseSensor(mock_coordinator, "test_sensor")
         
-        assert sensor._attr_unique_id == "rce_pse_test_sensor"
+        assert sensor._attr_unique_id == "rce_prices_test_sensor"
         assert sensor._attr_has_entity_name is True
-        assert sensor._attr_translation_key == "rce_pse_test_sensor"
+        assert sensor._attr_translation_key == "rce_prices_test_sensor"
         assert sensor.calculator is not None
 
     def test_device_info(self, mock_coordinator):
         sensor = RCEBaseSensor(mock_coordinator, "test_sensor")
         device_info = sensor.device_info
         
-        assert device_info["name"] == "RCE PSE"
-        assert device_info["model"] == "RCE PSE"
+        assert device_info["name"] == "RCE Prices"
+        assert device_info["model"] == "RCE Prices"
         assert device_info["entry_type"] == "service"
-        assert device_info["manufacturer"] == "Lewa-Reka"
-        assert ("rce_pse", "rce_pse") in device_info["identifiers"]
+        assert device_info["manufacturer"] == "plebann"
+        assert ("rce_prices", "rce_prices") in device_info["identifiers"]
 
     def test_get_today_data(self, mock_coordinator, coordinator_data):
         from homeassistant.util import dt as dt_util
@@ -449,7 +449,7 @@ class TestRCECustomWindowSensor:
 
     def test_get_config_value_default(self):
         config_entry = MockConfigEntry(
-            domain="rce_pse",
+            domain="rce_prices",
             data={},
             options={}
         )
@@ -461,7 +461,7 @@ class TestRCECustomWindowSensor:
 
     def test_get_config_value_converts_float_to_int_for_window_keys(self):
         config_entry = MockConfigEntry(
-            domain="rce_pse",
+            domain="rce_prices",
             data={
                 CONF_CHEAPEST_TIME_WINDOW_START: 8.0,
                 CONF_CHEAPEST_TIME_WINDOW_END: 20.0,
