@@ -11,7 +11,8 @@
                     "expensive_time_window_start": "Najdroższe - początek przeszukiwania (godzina)",
                     "expensive_time_window_end": "Najdroższe - koniec przeszukiwania (godzina)",
                     "expensive_window_duration_hours": "Najdroższe - długość poszukiwanego okna (godziny)",
-                    "use_hourly_prices": "Korzystaj ze średnich cen godzinowych"
+                    "use_hourly_prices": "Korzystaj ze średnich cen godzinowych",
+                    "price_slot_sensors": "Sensory cen dla slotow czasowych"
                 },
                 "data_description": {
                     "cheapest_time_window_start": "Godzina początkowa dla poszukiwania najtańszych okien (0-23)",
@@ -20,7 +21,8 @@
                     "expensive_time_window_start": "Godzina początkowa dla poszukiwania najdroższych okien (0-23)",
                     "expensive_time_window_end": "Godzina końcowa dla poszukiwania najdroższych okien (1-24)",
                     "expensive_window_duration_hours": "Długość ciągłego najdroższego okna czasowego (1-24 godzin)",
-                    "use_hourly_prices": "Przydatne w rozliczeniach net-billing z uwagi na opomiarowanie prosumentów z dokładnością do godziny mimo cen 15 minutowych. W tym trybie obliczana jest średnia cena dla danej godziny z publikowanych cen dla kwadransów. Rozliczenie zgodnie z Art. 4b ust. 11 Ustawy o OZE"
+                    "use_hourly_prices": "Przydatne w rozliczeniach net-billing z uwagi na opomiarowanie prosumentów z dokładnością do godziny mimo cen 15 minutowych. W tym trybie obliczana jest średnia cena dla danej godziny z publikowanych cen dla kwadransów. Rozliczenie zgodnie z Art. 4b ust. 11 Ustawy o OZE",
+                    "price_slot_sensors": "Wystawia osobne sensory dla każdego slotu czasowego. Godzinowe: 24+24 sensory (Today H00-H23, Tomorrow H00-H23). 15-minutowe: 96+96 sensorow. Wymaga przeladowania integracji po zmianie."
                 }
             }
         },
@@ -43,7 +45,8 @@
                     "expensive_time_window_start": "Najdroższe - początek przeszukiwania (godzina)",
                     "expensive_time_window_end": "Najdroższe - koniec przeszukiwania (godzina)",
                     "expensive_window_duration_hours": "Najdroższe - długość poszukiwanego okna (godziny)",
-                    "use_hourly_prices": "Korzystaj ze średnich cen godzinowych"
+                    "use_hourly_prices": "Korzystaj ze średnich cen godzinowych",
+                    "price_slot_sensors": "Sensory cen dla slotow czasowych"
                 },
                 "data_description": {
                     "cheapest_time_window_start": "Godzina początkowa dla poszukiwania najtańszych okien (0-23)",
@@ -52,7 +55,8 @@
                     "expensive_time_window_start": "Godzina początkowa dla poszukiwania najdroższych okien (0-23)",
                     "expensive_time_window_end": "Godzina końcowa dla poszukiwania najdroższych okien (1-24)",
                     "expensive_window_duration_hours": "Długość ciągłego najdroższego okna czasowego (1-24 godzin)",
-                    "use_hourly_prices": "Przydatne w rozliczeniach net-billing z uwagi na opomiarowanie prosumentów z dokładnością do godziny mimo cen 15 minutowych. W tym trybie obliczana jest średnia cena dla danej godziny z publikowanych cen dla kwadransów. Rozliczenie zgodnie z Art. 4b ust. 11 Ustawy o OZE"
+                    "use_hourly_prices": "Przydatne w rozliczeniach net-billing z uwagi na opomiarowanie prosumentów z dokładnością do godziny mimo cen 15 minutowych. W tym trybie obliczana jest średnia cena dla danej godziny z publikowanych cen dla kwadransów. Rozliczenie zgodnie z Art. 4b ust. 11 Ustawy o OZE",
+                    "price_slot_sensors": "Wystawia osobne sensory dla każdego slotu czasowego. Godzinowe: 24+24 sensory (Today H00-H23, Tomorrow H00-H23). 15-minutowe: 96+96 sensorow. Wymaga przeladowania integracji po zmianie."
                 }
             }
         },

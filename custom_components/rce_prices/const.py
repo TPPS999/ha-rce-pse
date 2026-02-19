@@ -23,11 +23,17 @@ CONF_EXPENSIVE_WINDOW_DURATION_HOURS: Final[str] = "expensive_window_duration_ho
 
 CONF_WINDOW_DURATION_HOURS: Final[str] = "window_duration_hours"
 CONF_USE_HOURLY_PRICES: Final[str] = "use_hourly_prices"
+CONF_PRICE_SLOT_SENSORS: Final[str] = "price_slot_sensors"
 
-DEFAULT_TIME_WINDOW_START: Final[int] = 0  
-DEFAULT_TIME_WINDOW_END: Final[int] = 24   
+PRICE_SLOT_SENSORS_NONE: Final[str] = "none"
+PRICE_SLOT_SENSORS_HOURLY: Final[str] = "hourly"
+PRICE_SLOT_SENSORS_QUARTER: Final[str] = "quarter_hourly"
+
+DEFAULT_TIME_WINDOW_START: Final[int] = 0
+DEFAULT_TIME_WINDOW_END: Final[int] = 24
 DEFAULT_WINDOW_DURATION_HOURS: Final[int] = 2
-DEFAULT_USE_HOURLY_PRICES: Final[bool] = False 
+DEFAULT_USE_HOURLY_PRICES: Final[bool] = False
+DEFAULT_PRICE_SLOT_SENSORS: Final[str] = PRICE_SLOT_SENSORS_NONE
 
 MORNING_BEST_WINDOW_START_HOUR: Final[int] = 7
 MORNING_BEST_WINDOW_END_HOUR: Final[int] = 9

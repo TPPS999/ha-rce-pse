@@ -16,10 +16,15 @@ from .const import (
     CONF_EXPENSIVE_TIME_WINDOW_END,
     CONF_EXPENSIVE_WINDOW_DURATION_HOURS,
     CONF_USE_HOURLY_PRICES,
+    CONF_PRICE_SLOT_SENSORS,
+    PRICE_SLOT_SENSORS_NONE,
+    PRICE_SLOT_SENSORS_HOURLY,
+    PRICE_SLOT_SENSORS_QUARTER,
     DEFAULT_TIME_WINDOW_START,
     DEFAULT_TIME_WINDOW_END,
     DEFAULT_WINDOW_DURATION_HOURS,
     DEFAULT_USE_HOURLY_PRICES,
+    DEFAULT_PRICE_SLOT_SENSORS,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -75,6 +80,16 @@ CONFIG_SCHEMA = vol.Schema({
     ),
     vol.Optional(CONF_USE_HOURLY_PRICES, default=DEFAULT_USE_HOURLY_PRICES): selector.BooleanSelector(
         selector.BooleanSelectorConfig()
+    ),
+    vol.Optional(CONF_PRICE_SLOT_SENSORS, default=DEFAULT_PRICE_SLOT_SENSORS): selector.SelectSelector(
+        selector.SelectSelectorConfig(
+            options=[
+                {"value": PRICE_SLOT_SENSORS_NONE, "label": "None (no slot sensors)"},
+                {"value": PRICE_SLOT_SENSORS_HOURLY, "label": "Hourly (h00-h23, 24 per day)"},
+                {"value": PRICE_SLOT_SENSORS_QUARTER, "label": "15-minute (0000-2345, 96 per day)"},
+            ],
+            mode=selector.SelectSelectorMode.LIST,
+        )
     ),
 })
 
@@ -214,10 +229,23 @@ class RCEOptionsFlow(config_entries.OptionsFlow):
                 )
             ),
             vol.Optional(
-                CONF_USE_HOURLY_PRICES, 
+                CONF_USE_HOURLY_PRICES,
                 default=current_data.get(CONF_USE_HOURLY_PRICES, DEFAULT_USE_HOURLY_PRICES)
             ): selector.BooleanSelector(
                 selector.BooleanSelectorConfig()
+            ),
+            vol.Optional(
+                CONF_PRICE_SLOT_SENSORS,
+                default=current_data.get(CONF_PRICE_SLOT_SENSORS, DEFAULT_PRICE_SLOT_SENSORS)
+            ): selector.SelectSelector(
+                selector.SelectSelectorConfig(
+                    options=[
+                        {"value": PRICE_SLOT_SENSORS_NONE, "label": "None (no slot sensors)"},
+                        {"value": PRICE_SLOT_SENSORS_HOURLY, "label": "Hourly (h00-h23, 24 per day)"},
+                        {"value": PRICE_SLOT_SENSORS_QUARTER, "label": "15-minute (0000-2345, 96 per day)"},
+                    ],
+                    mode=selector.SelectSelectorMode.LIST,
+                )
             ),
         })
 

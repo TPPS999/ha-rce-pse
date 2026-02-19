@@ -6,8 +6,18 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import DOMAIN
+from .const import (
+    DOMAIN,
+    CONF_PRICE_SLOT_SENSORS,
+    DEFAULT_PRICE_SLOT_SENSORS,
+    PRICE_SLOT_SENSORS_HOURLY,
+    PRICE_SLOT_SENSORS_QUARTER,
+)
 from .sensors import (
+    RCETodayHourPriceSensor,
+    RCETomorrowHourPriceSensor,
+    RCETodayQuarterPriceSensor,
+    RCETomorrowQuarterPriceSensor,
     RCETodayMainSensor,
     RCETodayKwhPriceSensor,
     RCENextHourPriceSensor,
@@ -155,7 +165,24 @@ async def async_setup_entry(
         RCETomorrowExpensiveWindowStartTimestampSensor(coordinator, config_entry),
         RCETomorrowExpensiveWindowEndTimestampSensor(coordinator, config_entry),
     ]
-    
+
+    options = config_entry.options if config_entry.options else config_entry.data
+    slot_mode = options.get(CONF_PRICE_SLOT_SENSORS, DEFAULT_PRICE_SLOT_SENSORS)
+
+    if slot_mode == PRICE_SLOT_SENSORS_HOURLY:
+        _LOGGER.debug("Price slot sensors mode: hourly - adding 48 sensors (24 today + 24 tomorrow)")
+        for hour in range(24):
+            sensors.append(RCETodayHourPriceSensor(coordinator, hour))
+            sensors.append(RCETomorrowHourPriceSensor(coordinator, hour))
+    elif slot_mode == PRICE_SLOT_SENSORS_QUARTER:
+        _LOGGER.debug("Price slot sensors mode: quarter_hourly - adding 192 sensors (96 today + 96 tomorrow)")
+        for hour in range(24):
+            for minute in (0, 15, 30, 45):
+                sensors.append(RCETodayQuarterPriceSensor(coordinator, hour, minute))
+                sensors.append(RCETomorrowQuarterPriceSensor(coordinator, hour, minute))
+    else:
+        _LOGGER.debug("Price slot sensors mode: none - skipping slot sensors")
+
     _LOGGER.debug("Adding %d RCE Prices sensors to Home Assistant", len(sensors))
     async_add_entities(sensors)
     _LOGGER.debug("RCE Prices sensors setup completed successfully") 
