@@ -40,3 +40,16 @@ MORNING_BEST_WINDOW_END_HOUR: Final[int] = 9
 EVENING_BEST_WINDOW_START_HOUR: Final[int] = 17
 EVENING_BEST_WINDOW_END_HOUR: Final[int] = 21
 BEST_WINDOW_DURATION_HOURS: Final[int] = 1
+
+CONF_GOODWE_DEVICE_ID: Final[str] = "goodwe_device_id"
+CONF_GOODWE_SELL_THRESHOLD: Final[str] = "goodwe_sell_threshold"
+CONF_GOODWE_BUY_THRESHOLD: Final[str] = "goodwe_buy_threshold"
+CONF_GOODWE_BUY_SWITCH: Final[str] = "goodwe_buy_switch"
+CONF_GOODWE_FLIP_SELL: Final[str] = "goodwe_flip_sell"
+CONF_GOODWE_FLIP_BUY: Final[str] = "goodwe_flip_buy"
+
+DEFAULT_GOODWE_SELL_THRESHOLD: Final[float] = 0.0
+DEFAULT_GOODWE_BUY_THRESHOLD: Final[float] = 0.0
+DEFAULT_GOODWE_BUY_SWITCH: Final[str] = "1"
+DEFAULT_GOODWE_FLIP_SELL: Final[bool] = False
+DEFAULT_GOODWE_FLIP_BUY: Final[bool] = False

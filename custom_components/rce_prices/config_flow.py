@@ -20,11 +20,22 @@ from .const import (
     PRICE_SLOT_SENSORS_NONE,
     PRICE_SLOT_SENSORS_HOURLY,
     PRICE_SLOT_SENSORS_QUARTER,
+    CONF_GOODWE_DEVICE_ID,
+    CONF_GOODWE_SELL_THRESHOLD,
+    CONF_GOODWE_BUY_THRESHOLD,
+    CONF_GOODWE_BUY_SWITCH,
+    CONF_GOODWE_FLIP_SELL,
+    CONF_GOODWE_FLIP_BUY,
     DEFAULT_TIME_WINDOW_START,
     DEFAULT_TIME_WINDOW_END,
     DEFAULT_WINDOW_DURATION_HOURS,
     DEFAULT_USE_HOURLY_PRICES,
     DEFAULT_PRICE_SLOT_SENSORS,
+    DEFAULT_GOODWE_SELL_THRESHOLD,
+    DEFAULT_GOODWE_BUY_THRESHOLD,
+    DEFAULT_GOODWE_BUY_SWITCH,
+    DEFAULT_GOODWE_FLIP_SELL,
+    DEFAULT_GOODWE_FLIP_BUY,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -90,6 +101,41 @@ CONFIG_SCHEMA = vol.Schema({
             ],
             mode=selector.SelectSelectorMode.LIST,
         )
+    ),
+    vol.Optional(CONF_GOODWE_DEVICE_ID, default=""): selector.TextSelector(
+        selector.TextSelectorConfig()
+    ),
+    vol.Optional(CONF_GOODWE_SELL_THRESHOLD, default=DEFAULT_GOODWE_SELL_THRESHOLD): selector.NumberSelector(
+        selector.NumberSelectorConfig(
+            min=-500,
+            max=5000,
+            step=0.01,
+            mode=selector.NumberSelectorMode.BOX,
+        )
+    ),
+    vol.Optional(CONF_GOODWE_BUY_THRESHOLD, default=DEFAULT_GOODWE_BUY_THRESHOLD): selector.NumberSelector(
+        selector.NumberSelectorConfig(
+            min=-500,
+            max=5000,
+            step=0.01,
+            mode=selector.NumberSelectorMode.BOX,
+        )
+    ),
+    vol.Optional(CONF_GOODWE_BUY_SWITCH, default=DEFAULT_GOODWE_BUY_SWITCH): selector.SelectSelector(
+        selector.SelectSelectorConfig(
+            options=[
+                {"value": "0", "label": "0 - Disabled"},
+                {"value": "1", "label": "1 - Charge battery only"},
+                {"value": "2", "label": "2 - Charge + sell"},
+            ],
+            mode=selector.SelectSelectorMode.LIST,
+        )
+    ),
+    vol.Optional(CONF_GOODWE_FLIP_SELL, default=DEFAULT_GOODWE_FLIP_SELL): selector.BooleanSelector(
+        selector.BooleanSelectorConfig()
+    ),
+    vol.Optional(CONF_GOODWE_FLIP_BUY, default=DEFAULT_GOODWE_FLIP_BUY): selector.BooleanSelector(
+        selector.BooleanSelectorConfig()
     ),
 })
 
@@ -246,6 +292,59 @@ class RCEOptionsFlow(config_entries.OptionsFlow):
                     ],
                     mode=selector.SelectSelectorMode.LIST,
                 )
+            ),
+            vol.Optional(
+                CONF_GOODWE_DEVICE_ID,
+                default=current_data.get(CONF_GOODWE_DEVICE_ID, "")
+            ): selector.TextSelector(
+                selector.TextSelectorConfig()
+            ),
+            vol.Optional(
+                CONF_GOODWE_SELL_THRESHOLD,
+                default=current_data.get(CONF_GOODWE_SELL_THRESHOLD, DEFAULT_GOODWE_SELL_THRESHOLD)
+            ): selector.NumberSelector(
+                selector.NumberSelectorConfig(
+                    min=-500,
+                    max=5000,
+                    step=0.01,
+                    mode=selector.NumberSelectorMode.BOX,
+                )
+            ),
+            vol.Optional(
+                CONF_GOODWE_BUY_THRESHOLD,
+                default=current_data.get(CONF_GOODWE_BUY_THRESHOLD, DEFAULT_GOODWE_BUY_THRESHOLD)
+            ): selector.NumberSelector(
+                selector.NumberSelectorConfig(
+                    min=-500,
+                    max=5000,
+                    step=0.01,
+                    mode=selector.NumberSelectorMode.BOX,
+                )
+            ),
+            vol.Optional(
+                CONF_GOODWE_BUY_SWITCH,
+                default=current_data.get(CONF_GOODWE_BUY_SWITCH, DEFAULT_GOODWE_BUY_SWITCH)
+            ): selector.SelectSelector(
+                selector.SelectSelectorConfig(
+                    options=[
+                        {"value": "0", "label": "0 - Disabled"},
+                        {"value": "1", "label": "1 - Charge battery only"},
+                        {"value": "2", "label": "2 - Charge + sell"},
+                    ],
+                    mode=selector.SelectSelectorMode.LIST,
+                )
+            ),
+            vol.Optional(
+                CONF_GOODWE_FLIP_SELL,
+                default=current_data.get(CONF_GOODWE_FLIP_SELL, DEFAULT_GOODWE_FLIP_SELL)
+            ): selector.BooleanSelector(
+                selector.BooleanSelectorConfig()
+            ),
+            vol.Optional(
+                CONF_GOODWE_FLIP_BUY,
+                default=current_data.get(CONF_GOODWE_FLIP_BUY, DEFAULT_GOODWE_FLIP_BUY)
+            ): selector.BooleanSelector(
+                selector.BooleanSelectorConfig()
             ),
         })
 

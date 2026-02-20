@@ -12,7 +12,13 @@
                     "expensive_time_window_end": "Najdroższe - koniec przeszukiwania (godzina)",
                     "expensive_window_duration_hours": "Najdroższe - długość poszukiwanego okna (godziny)",
                     "use_hourly_prices": "Korzystaj ze średnich cen godzinowych",
-                    "price_slot_sensors": "Sensory cen dla slotow czasowych"
+                    "price_slot_sensors": "Sensory cen dla slotow czasowych",
+                    "goodwe_device_id": "ID urzadzenia falownika GoodWe",
+                    "goodwe_sell_threshold": "Prog sprzedazy GoodWe (PLN/MWh)",
+                    "goodwe_buy_threshold": "Prog zakupu GoodWe (PLN/MWh)",
+                    "goodwe_buy_switch": "Tryb zakupu GoodWe",
+                    "goodwe_flip_sell": "Odwroc maske sprzedazy GoodWe",
+                    "goodwe_flip_buy": "Odwroc maske zakupu GoodWe"
                 },
                 "data_description": {
                     "cheapest_time_window_start": "Godzina początkowa dla poszukiwania najtańszych okien (0-23)",
@@ -22,7 +28,13 @@
                     "expensive_time_window_end": "Godzina końcowa dla poszukiwania najdroższych okien (1-24)",
                     "expensive_window_duration_hours": "Długość ciągłego najdroższego okna czasowego (1-24 godzin)",
                     "use_hourly_prices": "Przydatne w rozliczeniach net-billing z uwagi na opomiarowanie prosumentów z dokładnością do godziny mimo cen 15 minutowych. W tym trybie obliczana jest średnia cena dla danej godziny z publikowanych cen dla kwadransów. Rozliczenie zgodnie z Art. 4b ust. 11 Ustawy o OZE",
-                    "price_slot_sensors": "Wystawia osobne sensory dla każdego slotu czasowego. Godzinowe: 24+24 sensory (Today H00-H23, Tomorrow H00-H23). 15-minutowe: 96+96 sensorow. Wymaga przeladowania integracji po zmianie."
+                    "price_slot_sensors": "Wystawia osobne sensory dla każdego slotu czasowego. Godzinowe: 24+24 sensory (Today H00-H23, Tomorrow H00-H23). 15-minutowe: 96+96 sensorow. Wymaga przeladowania integracji po zmianie.",
+                    "goodwe_device_id": "Pozostaw puste aby wylaczyc integracje z GoodWe. ID urzadzenia znajdziesz w Ustawienia > Urzadzenia.",
+                    "goodwe_sell_threshold": "Ceny ponizej tego progu (PLN/MWh) sa oznaczane jako korzystne do sprzedazy. Bit=1 gdy cena < prog.",
+                    "goodwe_buy_threshold": "Ceny ponizej tego progu (PLN/MWh) sa oznaczane jako korzystne do zakupu (ladowanie). Bit=1 gdy cena < prog.",
+                    "goodwe_buy_switch": "0=wylaczony, 1=tylko ladowanie baterii, 2=ladowanie i sprzedaz",
+                    "goodwe_flip_sell": "Odwraca bity maski sprzedazy (bit=1 gdy cena >= prog zamiast <)",
+                    "goodwe_flip_buy": "Odwraca bity maski zakupu (bit=1 gdy cena >= prog zamiast <)"
                 }
             }
         },
@@ -46,7 +58,13 @@
                     "expensive_time_window_end": "Najdroższe - koniec przeszukiwania (godzina)",
                     "expensive_window_duration_hours": "Najdroższe - długość poszukiwanego okna (godziny)",
                     "use_hourly_prices": "Korzystaj ze średnich cen godzinowych",
-                    "price_slot_sensors": "Sensory cen dla slotow czasowych"
+                    "price_slot_sensors": "Sensory cen dla slotow czasowych",
+                    "goodwe_device_id": "ID urzadzenia falownika GoodWe",
+                    "goodwe_sell_threshold": "Prog sprzedazy GoodWe (PLN/MWh)",
+                    "goodwe_buy_threshold": "Prog zakupu GoodWe (PLN/MWh)",
+                    "goodwe_buy_switch": "Tryb zakupu GoodWe",
+                    "goodwe_flip_sell": "Odwroc maske sprzedazy GoodWe",
+                    "goodwe_flip_buy": "Odwroc maske zakupu GoodWe"
                 },
                 "data_description": {
                     "cheapest_time_window_start": "Godzina początkowa dla poszukiwania najtańszych okien (0-23)",
@@ -56,7 +74,13 @@
                     "expensive_time_window_end": "Godzina końcowa dla poszukiwania najdroższych okien (1-24)",
                     "expensive_window_duration_hours": "Długość ciągłego najdroższego okna czasowego (1-24 godzin)",
                     "use_hourly_prices": "Przydatne w rozliczeniach net-billing z uwagi na opomiarowanie prosumentów z dokładnością do godziny mimo cen 15 minutowych. W tym trybie obliczana jest średnia cena dla danej godziny z publikowanych cen dla kwadransów. Rozliczenie zgodnie z Art. 4b ust. 11 Ustawy o OZE",
-                    "price_slot_sensors": "Wystawia osobne sensory dla każdego slotu czasowego. Godzinowe: 24+24 sensory (Today H00-H23, Tomorrow H00-H23). 15-minutowe: 96+96 sensorow. Wymaga przeladowania integracji po zmianie."
+                    "price_slot_sensors": "Wystawia osobne sensory dla każdego slotu czasowego. Godzinowe: 24+24 sensory (Today H00-H23, Tomorrow H00-H23). 15-minutowe: 96+96 sensorow. Wymaga przeladowania integracji po zmianie.",
+                    "goodwe_device_id": "Pozostaw puste aby wylaczyc integracje z GoodWe. ID urzadzenia znajdziesz w Ustawienia > Urzadzenia.",
+                    "goodwe_sell_threshold": "Ceny ponizej tego progu (PLN/MWh) sa oznaczane jako korzystne do sprzedazy. Bit=1 gdy cena < prog.",
+                    "goodwe_buy_threshold": "Ceny ponizej tego progu (PLN/MWh) sa oznaczane jako korzystne do zakupu (ladowanie). Bit=1 gdy cena < prog.",
+                    "goodwe_buy_switch": "0=wylaczony, 1=tylko ladowanie baterii, 2=ladowanie i sprzedaz",
+                    "goodwe_flip_sell": "Odwraca bity maski sprzedazy (bit=1 gdy cena >= prog zamiast <)",
+                    "goodwe_flip_buy": "Odwraca bity maski zakupu (bit=1 gdy cena >= prog zamiast <)"
                 }
             }
         },

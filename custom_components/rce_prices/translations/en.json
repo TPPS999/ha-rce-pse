@@ -12,7 +12,13 @@
                     "expensive_time_window_end": "Most expensive - time window end (hour)",
                     "expensive_window_duration_hours": "Most expensive - search window duration (hours)",
                     "use_hourly_prices": "Use hourly prices",
-                    "price_slot_sensors": "Per-slot price sensors"
+                    "price_slot_sensors": "Per-slot price sensors",
+                    "goodwe_device_id": "GoodWe inverter device ID",
+                    "goodwe_sell_threshold": "GoodWe sell threshold (PLN/MWh)",
+                    "goodwe_buy_threshold": "GoodWe buy threshold (PLN/MWh)",
+                    "goodwe_buy_switch": "GoodWe buy switch mode",
+                    "goodwe_flip_sell": "GoodWe flip sell mask",
+                    "goodwe_flip_buy": "GoodWe flip buy mask"
                 },
                 "data_description": {
                     "cheapest_time_window_start": "Starting hour for searching cheapest windows (0-23)",
@@ -22,7 +28,13 @@
                     "expensive_time_window_end": "Ending hour for searching most expensive windows (1-24)",
                     "expensive_window_duration_hours": "Duration of continuous most expensive time window (1-24 hours)",
                     "use_hourly_prices": "Useful in net-billing settlements due to prosumer metering with hourly accuracy despite 15-minute prices. In this mode, the average price for a given hour is calculated from published quarter-hour prices. Settlement according to Art. 4b sec. 11 of the Ustawa o OZE",
-                    "price_slot_sensors": "Expose individual sensors for each time slot. Hourly: 24+24 sensors (Today H00-H23, Tomorrow H00-H23). 15-minute: 96+96 sensors. Requires integration reload after change."
+                    "price_slot_sensors": "Expose individual sensors for each time slot. Hourly: 24+24 sensors (Today H00-H23, Tomorrow H00-H23). 15-minute: 96+96 sensors. Requires integration reload after change.",
+                    "goodwe_device_id": "Leave empty to disable GoodWe integration. Find device ID in Settings > Devices.",
+                    "goodwe_sell_threshold": "Prices below this value (PLN/MWh) are marked as favorable for selling. Bit=1 when price < threshold.",
+                    "goodwe_buy_threshold": "Prices below this value (PLN/MWh) are marked as favorable for buying (charging). Bit=1 when price < threshold.",
+                    "goodwe_buy_switch": "0=disabled, 1=charge battery only, 2=charge and sell",
+                    "goodwe_flip_sell": "Invert the sell mask bits (bit=1 when price >= threshold instead of <)",
+                    "goodwe_flip_buy": "Invert the buy mask bits (bit=1 when price >= threshold instead of <)"
                 }
             }
         },
@@ -46,7 +58,13 @@
                     "expensive_time_window_end": "Most expensive - time window end (hour)",
                     "expensive_window_duration_hours": "Most expensive - search window duration (hours)",
                     "use_hourly_prices": "Use hourly prices",
-                    "price_slot_sensors": "Per-slot price sensors"
+                    "price_slot_sensors": "Per-slot price sensors",
+                    "goodwe_device_id": "GoodWe inverter device ID",
+                    "goodwe_sell_threshold": "GoodWe sell threshold (PLN/MWh)",
+                    "goodwe_buy_threshold": "GoodWe buy threshold (PLN/MWh)",
+                    "goodwe_buy_switch": "GoodWe buy switch mode",
+                    "goodwe_flip_sell": "GoodWe flip sell mask",
+                    "goodwe_flip_buy": "GoodWe flip buy mask"
                 },
                 "data_description": {
                     "cheapest_time_window_start": "Starting hour for searching cheapest windows (0-23)",
@@ -56,7 +74,13 @@
                     "expensive_time_window_end": "Ending hour for searching most expensive windows (1-24)",
                     "expensive_window_duration_hours": "Duration of continuous most expensive time window (1-24 hours)",
                     "use_hourly_prices": "Useful in net-billing settlements due to prosumer metering with hourly accuracy despite 15-minute prices. In this mode, the average price for a given hour is calculated from published quarter-hour prices. Settlement according to Art. 4b sec. 11 of the Ustawa o OZE",
-                    "price_slot_sensors": "Expose individual sensors for each time slot. Hourly: 24+24 sensors (Today H00-H23, Tomorrow H00-H23). 15-minute: 96+96 sensors. Requires integration reload after change."
+                    "price_slot_sensors": "Expose individual sensors for each time slot. Hourly: 24+24 sensors (Today H00-H23, Tomorrow H00-H23). 15-minute: 96+96 sensors. Requires integration reload after change.",
+                    "goodwe_device_id": "Leave empty to disable GoodWe integration. Find device ID in Settings > Devices.",
+                    "goodwe_sell_threshold": "Prices below this value (PLN/MWh) are marked as favorable for selling. Bit=1 when price < threshold.",
+                    "goodwe_buy_threshold": "Prices below this value (PLN/MWh) are marked as favorable for buying (charging). Bit=1 when price < threshold.",
+                    "goodwe_buy_switch": "0=disabled, 1=charge battery only, 2=charge and sell",
+                    "goodwe_flip_sell": "Invert the sell mask bits (bit=1 when price >= threshold instead of <)",
+                    "goodwe_flip_buy": "Invert the buy mask bits (bit=1 when price >= threshold instead of <)"
                 }
             }
         },
