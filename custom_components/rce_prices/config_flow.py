@@ -26,6 +26,13 @@ from .const import (
     CONF_GOODWE_BUY_SWITCH,
     CONF_GOODWE_FLIP_SELL,
     CONF_GOODWE_FLIP_BUY,
+    CONF_MAX_GRID_POWER_KW,
+    CONF_MAX_CHARGING_POWER_KW,
+    CONF_REQUIRED_DAILY_ENERGY_KWH,
+    CONF_BATTERY_CAPACITY_KWH,
+    CONF_PV_FORECAST_ENTITY,
+    CONF_CONSUMPTION_ENTITY,
+    CONF_SOC_ENTITY,
     DEFAULT_TIME_WINDOW_START,
     DEFAULT_TIME_WINDOW_END,
     DEFAULT_WINDOW_DURATION_HOURS,
@@ -36,6 +43,10 @@ from .const import (
     DEFAULT_GOODWE_BUY_SWITCH,
     DEFAULT_GOODWE_FLIP_SELL,
     DEFAULT_GOODWE_FLIP_BUY,
+    DEFAULT_MAX_GRID_POWER_KW,
+    DEFAULT_MAX_CHARGING_POWER_KW,
+    DEFAULT_REQUIRED_DAILY_ENERGY_KWH,
+    DEFAULT_BATTERY_CAPACITY_KWH,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -136,6 +147,47 @@ CONFIG_SCHEMA = vol.Schema({
     ),
     vol.Optional(CONF_GOODWE_FLIP_BUY, default=DEFAULT_GOODWE_FLIP_BUY): selector.BooleanSelector(
         selector.BooleanSelectorConfig()
+    ),
+    vol.Optional(CONF_MAX_GRID_POWER_KW, default=DEFAULT_MAX_GRID_POWER_KW): selector.NumberSelector(
+        selector.NumberSelectorConfig(
+            min=0,
+            max=100,
+            step=0.1,
+            mode=selector.NumberSelectorMode.BOX,
+        )
+    ),
+    vol.Optional(CONF_MAX_CHARGING_POWER_KW, default=DEFAULT_MAX_CHARGING_POWER_KW): selector.NumberSelector(
+        selector.NumberSelectorConfig(
+            min=0,
+            max=50,
+            step=0.1,
+            mode=selector.NumberSelectorMode.BOX,
+        )
+    ),
+    vol.Optional(CONF_REQUIRED_DAILY_ENERGY_KWH, default=DEFAULT_REQUIRED_DAILY_ENERGY_KWH): selector.NumberSelector(
+        selector.NumberSelectorConfig(
+            min=0,
+            max=200,
+            step=0.1,
+            mode=selector.NumberSelectorMode.BOX,
+        )
+    ),
+    vol.Optional(CONF_BATTERY_CAPACITY_KWH, default=DEFAULT_BATTERY_CAPACITY_KWH): selector.NumberSelector(
+        selector.NumberSelectorConfig(
+            min=0,
+            max=200,
+            step=0.1,
+            mode=selector.NumberSelectorMode.BOX,
+        )
+    ),
+    vol.Optional(CONF_PV_FORECAST_ENTITY, default=""): selector.EntitySelector(
+        selector.EntitySelectorConfig(domain="sensor")
+    ),
+    vol.Optional(CONF_CONSUMPTION_ENTITY, default=""): selector.EntitySelector(
+        selector.EntitySelectorConfig(domain="sensor")
+    ),
+    vol.Optional(CONF_SOC_ENTITY, default=""): selector.EntitySelector(
+        selector.EntitySelectorConfig(domain="sensor")
     ),
 })
 
@@ -345,6 +397,68 @@ class RCEOptionsFlow(config_entries.OptionsFlow):
                 default=current_data.get(CONF_GOODWE_FLIP_BUY, DEFAULT_GOODWE_FLIP_BUY)
             ): selector.BooleanSelector(
                 selector.BooleanSelectorConfig()
+            ),
+            vol.Optional(
+                CONF_MAX_GRID_POWER_KW,
+                default=current_data.get(CONF_MAX_GRID_POWER_KW, DEFAULT_MAX_GRID_POWER_KW)
+            ): selector.NumberSelector(
+                selector.NumberSelectorConfig(
+                    min=0,
+                    max=100,
+                    step=0.1,
+                    mode=selector.NumberSelectorMode.BOX,
+                )
+            ),
+            vol.Optional(
+                CONF_MAX_CHARGING_POWER_KW,
+                default=current_data.get(CONF_MAX_CHARGING_POWER_KW, DEFAULT_MAX_CHARGING_POWER_KW)
+            ): selector.NumberSelector(
+                selector.NumberSelectorConfig(
+                    min=0,
+                    max=50,
+                    step=0.1,
+                    mode=selector.NumberSelectorMode.BOX,
+                )
+            ),
+            vol.Optional(
+                CONF_REQUIRED_DAILY_ENERGY_KWH,
+                default=current_data.get(CONF_REQUIRED_DAILY_ENERGY_KWH, DEFAULT_REQUIRED_DAILY_ENERGY_KWH)
+            ): selector.NumberSelector(
+                selector.NumberSelectorConfig(
+                    min=0,
+                    max=200,
+                    step=0.1,
+                    mode=selector.NumberSelectorMode.BOX,
+                )
+            ),
+            vol.Optional(
+                CONF_BATTERY_CAPACITY_KWH,
+                default=current_data.get(CONF_BATTERY_CAPACITY_KWH, DEFAULT_BATTERY_CAPACITY_KWH)
+            ): selector.NumberSelector(
+                selector.NumberSelectorConfig(
+                    min=0,
+                    max=200,
+                    step=0.1,
+                    mode=selector.NumberSelectorMode.BOX,
+                )
+            ),
+            vol.Optional(
+                CONF_PV_FORECAST_ENTITY,
+                default=current_data.get(CONF_PV_FORECAST_ENTITY, "")
+            ): selector.EntitySelector(
+                selector.EntitySelectorConfig(domain="sensor")
+            ),
+            vol.Optional(
+                CONF_CONSUMPTION_ENTITY,
+                default=current_data.get(CONF_CONSUMPTION_ENTITY, "")
+            ): selector.EntitySelector(
+                selector.EntitySelectorConfig(domain="sensor")
+            ),
+            vol.Optional(
+                CONF_SOC_ENTITY,
+                default=current_data.get(CONF_SOC_ENTITY, "")
+            ): selector.EntitySelector(
+                selector.EntitySelectorConfig(domain="sensor")
             ),
         })
 

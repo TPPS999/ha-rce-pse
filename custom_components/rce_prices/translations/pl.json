@@ -18,7 +18,14 @@
                     "goodwe_buy_threshold": "Prog zakupu GoodWe (PLN/MWh)",
                     "goodwe_buy_switch": "Tryb zakupu GoodWe",
                     "goodwe_flip_sell": "Odwroc maske sprzedazy GoodWe",
-                    "goodwe_flip_buy": "Odwroc maske zakupu GoodWe"
+                    "goodwe_flip_buy": "Odwroc maske zakupu GoodWe",
+                    "max_grid_power_kw": "Maks. moc przylacza (kW)",
+                    "max_charging_power_kw": "Maks. moc ladowania baterii (kW)",
+                    "required_daily_energy_kwh": "Wymagana energia dobowa (kWh)",
+                    "battery_capacity_kwh": "Pojemnosc baterii (kWh)",
+                    "pv_forecast_entity": "Encja prognozy produkcji PV",
+                    "consumption_entity": "Encja dziennego zuzycia energii",
+                    "soc_entity": "Encja SOC baterii"
                 },
                 "data_description": {
                     "cheapest_time_window_start": "Godzina początkowa dla poszukiwania najtańszych okien (0-23)",
@@ -34,7 +41,14 @@
                     "goodwe_buy_threshold": "Ceny ponizej tego progu (PLN/MWh) sa oznaczane jako korzystne do zakupu (ladowanie). Bit=1 gdy cena < prog.",
                     "goodwe_buy_switch": "0=wylaczony, 1=tylko ladowanie baterii, 2=ladowanie i sprzedaz",
                     "goodwe_flip_sell": "Odwraca bity maski sprzedazy (bit=1 gdy cena >= prog zamiast <)",
-                    "goodwe_flip_buy": "Odwraca bity maski zakupu (bit=1 gdy cena >= prog zamiast <)"
+                    "goodwe_flip_buy": "Odwraca bity maski zakupu (bit=1 gdy cena >= prog zamiast <)",
+                    "max_grid_power_kw": "Maksymalna moc dostepna z sieci (kW). Ogranicza szybkosc ladowania.",
+                    "max_charging_power_kw": "Maksymalna moc ladowania baterii (kW).",
+                    "required_daily_energy_kwh": "Domyslne dzienne zuzycie energii (kWh) gdy encja zuzycia jest niedostepna.",
+                    "battery_capacity_kwh": "Laczna uzyteczna pojemnosc baterii (kWh).",
+                    "pv_forecast_entity": "Encja sensora z prognoza produkcji PV na jutro (kWh). Pozostaw puste aby przyjac 0.",
+                    "consumption_entity": "Encja sensora z historycznym dziennym zuzyciem energii (kWh). Pozostaw puste aby uzyc wartosci domyslnej.",
+                    "soc_entity": "Encja sensora z aktualnym stanem naladowania baterii (%). Pozostaw puste aby przyjac 0%."
                 }
             }
         },
@@ -64,7 +78,14 @@
                     "goodwe_buy_threshold": "Prog zakupu GoodWe (PLN/MWh)",
                     "goodwe_buy_switch": "Tryb zakupu GoodWe",
                     "goodwe_flip_sell": "Odwroc maske sprzedazy GoodWe",
-                    "goodwe_flip_buy": "Odwroc maske zakupu GoodWe"
+                    "goodwe_flip_buy": "Odwroc maske zakupu GoodWe",
+                    "max_grid_power_kw": "Maks. moc przylacza (kW)",
+                    "max_charging_power_kw": "Maks. moc ladowania baterii (kW)",
+                    "required_daily_energy_kwh": "Wymagana energia dobowa (kWh)",
+                    "battery_capacity_kwh": "Pojemnosc baterii (kWh)",
+                    "pv_forecast_entity": "Encja prognozy produkcji PV",
+                    "consumption_entity": "Encja dziennego zuzycia energii",
+                    "soc_entity": "Encja SOC baterii"
                 },
                 "data_description": {
                     "cheapest_time_window_start": "Godzina początkowa dla poszukiwania najtańszych okien (0-23)",
@@ -80,7 +101,14 @@
                     "goodwe_buy_threshold": "Ceny ponizej tego progu (PLN/MWh) sa oznaczane jako korzystne do zakupu (ladowanie). Bit=1 gdy cena < prog.",
                     "goodwe_buy_switch": "0=wylaczony, 1=tylko ladowanie baterii, 2=ladowanie i sprzedaz",
                     "goodwe_flip_sell": "Odwraca bity maski sprzedazy (bit=1 gdy cena >= prog zamiast <)",
-                    "goodwe_flip_buy": "Odwraca bity maski zakupu (bit=1 gdy cena >= prog zamiast <)"
+                    "goodwe_flip_buy": "Odwraca bity maski zakupu (bit=1 gdy cena >= prog zamiast <)",
+                    "max_grid_power_kw": "Maksymalna moc dostepna z sieci (kW). Ogranicza szybkosc ladowania.",
+                    "max_charging_power_kw": "Maksymalna moc ladowania baterii (kW).",
+                    "required_daily_energy_kwh": "Domyslne dzienne zuzycie energii (kWh) gdy encja zuzycia jest niedostepna.",
+                    "battery_capacity_kwh": "Laczna uzyteczna pojemnosc baterii (kWh).",
+                    "pv_forecast_entity": "Encja sensora z prognoza produkcji PV na jutro (kWh). Pozostaw puste aby przyjac 0.",
+                    "consumption_entity": "Encja sensora z historycznym dziennym zuzyciem energii (kWh). Pozostaw puste aby uzyc wartosci domyslnej.",
+                    "soc_entity": "Encja sensora z aktualnym stanem naladowania baterii (%). Pozostaw puste aby przyjac 0%."
                 }
             }
         },

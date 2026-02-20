@@ -18,6 +18,7 @@ from .sensors import (
     RCETomorrowHourPriceSensor,
     RCETodayQuarterPriceSensor,
     RCETomorrowQuarterPriceSensor,
+    RCEOptimalBuyThresholdSensor,
     RCETodayMainSensor,
     RCETodayKwhPriceSensor,
     RCENextHourPriceSensor,
@@ -165,6 +166,8 @@ async def async_setup_entry(
         RCETomorrowExpensiveWindowStartTimestampSensor(coordinator, config_entry),
         RCETomorrowExpensiveWindowEndTimestampSensor(coordinator, config_entry),
     ]
+
+    sensors.append(RCEOptimalBuyThresholdSensor(coordinator, config_entry))
 
     options = config_entry.options if config_entry.options else config_entry.data
     slot_mode = options.get(CONF_PRICE_SLOT_SENSORS, DEFAULT_PRICE_SLOT_SENSORS)

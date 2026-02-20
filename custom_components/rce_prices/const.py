@@ -53,3 +53,18 @@ DEFAULT_GOODWE_BUY_THRESHOLD: Final[float] = 0.0
 DEFAULT_GOODWE_BUY_SWITCH: Final[str] = "1"
 DEFAULT_GOODWE_FLIP_SELL: Final[bool] = False
 DEFAULT_GOODWE_FLIP_BUY: Final[bool] = False
+
+CONF_MAX_GRID_POWER_KW: Final[str] = "max_grid_power_kw"
+CONF_MAX_CHARGING_POWER_KW: Final[str] = "max_charging_power_kw"
+CONF_REQUIRED_DAILY_ENERGY_KWH: Final[str] = "required_daily_energy_kwh"
+CONF_BATTERY_CAPACITY_KWH: Final[str] = "battery_capacity_kwh"
+CONF_PV_FORECAST_ENTITY: Final[str] = "pv_forecast_entity"
+CONF_CONSUMPTION_ENTITY: Final[str] = "consumption_entity"
+CONF_SOC_ENTITY: Final[str] = "soc_entity"
+
+DEFAULT_MAX_GRID_POWER_KW: Final[float] = 11.0
+DEFAULT_MAX_CHARGING_POWER_KW: Final[float] = 5.0
+DEFAULT_REQUIRED_DAILY_ENERGY_KWH: Final[float] = 10.0
+DEFAULT_BATTERY_CAPACITY_KWH: Final[float] = 10.0
+PV_START_HOUR: Final[int] = 7
+PV_END_HOUR: Final[int] = 19

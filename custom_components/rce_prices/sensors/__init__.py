@@ -59,6 +59,7 @@ from .today_hourly import RCETodayHourPriceSensor
 from .tomorrow_hourly import RCETomorrowHourPriceSensor
 from .today_quarter import RCETodayQuarterPriceSensor
 from .tomorrow_quarter import RCETomorrowQuarterPriceSensor
+from .energy_optimizer_sensor import RCEOptimalBuyThresholdSensor
 
 __all__ = [
     "RCEBaseSensor",
@@ -111,4 +112,5 @@ __all__ = [
     "RCETomorrowHourPriceSensor",
     "RCETodayQuarterPriceSensor",
     "RCETomorrowQuarterPriceSensor",
+    "RCEOptimalBuyThresholdSensor",
 ] 

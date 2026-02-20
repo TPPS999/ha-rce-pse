@@ -18,7 +18,14 @@
                     "goodwe_buy_threshold": "GoodWe buy threshold (PLN/MWh)",
                     "goodwe_buy_switch": "GoodWe buy switch mode",
                     "goodwe_flip_sell": "GoodWe flip sell mask",
-                    "goodwe_flip_buy": "GoodWe flip buy mask"
+                    "goodwe_flip_buy": "GoodWe flip buy mask",
+                    "max_grid_power_kw": "Max grid power (kW)",
+                    "max_charging_power_kw": "Max battery charging power (kW)",
+                    "required_daily_energy_kwh": "Required daily energy (kWh)",
+                    "battery_capacity_kwh": "Battery capacity (kWh)",
+                    "pv_forecast_entity": "PV forecast entity",
+                    "consumption_entity": "Daily consumption entity",
+                    "soc_entity": "Battery SoC entity"
                 },
                 "data_description": {
                     "cheapest_time_window_start": "Starting hour for searching cheapest windows (0-23)",
@@ -34,7 +41,14 @@
                     "goodwe_buy_threshold": "Prices below this value (PLN/MWh) are marked as favorable for buying (charging). Bit=1 when price < threshold.",
                     "goodwe_buy_switch": "0=disabled, 1=charge battery only, 2=charge and sell",
                     "goodwe_flip_sell": "Invert the sell mask bits (bit=1 when price >= threshold instead of <)",
-                    "goodwe_flip_buy": "Invert the buy mask bits (bit=1 when price >= threshold instead of <)"
+                    "goodwe_flip_buy": "Invert the buy mask bits (bit=1 when price >= threshold instead of <)",
+                    "max_grid_power_kw": "Maximum power available from grid (kW). Used to cap charging rate.",
+                    "max_charging_power_kw": "Maximum battery charging power (kW).",
+                    "required_daily_energy_kwh": "Fallback daily energy consumption (kWh) when consumption entity is unavailable.",
+                    "battery_capacity_kwh": "Total usable battery capacity (kWh).",
+                    "pv_forecast_entity": "Sensor providing expected PV production for tomorrow (kWh). Leave empty to assume 0.",
+                    "consumption_entity": "Sensor providing historical daily energy consumption (kWh). Leave empty to use required daily energy.",
+                    "soc_entity": "Sensor providing current battery state of charge (%). Leave empty to assume 0%."
                 }
             }
         },
@@ -64,7 +78,14 @@
                     "goodwe_buy_threshold": "GoodWe buy threshold (PLN/MWh)",
                     "goodwe_buy_switch": "GoodWe buy switch mode",
                     "goodwe_flip_sell": "GoodWe flip sell mask",
-                    "goodwe_flip_buy": "GoodWe flip buy mask"
+                    "goodwe_flip_buy": "GoodWe flip buy mask",
+                    "max_grid_power_kw": "Max grid power (kW)",
+                    "max_charging_power_kw": "Max battery charging power (kW)",
+                    "required_daily_energy_kwh": "Required daily energy (kWh)",
+                    "battery_capacity_kwh": "Battery capacity (kWh)",
+                    "pv_forecast_entity": "PV forecast entity",
+                    "consumption_entity": "Daily consumption entity",
+                    "soc_entity": "Battery SoC entity"
                 },
                 "data_description": {
                     "cheapest_time_window_start": "Starting hour for searching cheapest windows (0-23)",
@@ -80,7 +101,14 @@
                     "goodwe_buy_threshold": "Prices below this value (PLN/MWh) are marked as favorable for buying (charging). Bit=1 when price < threshold.",
                     "goodwe_buy_switch": "0=disabled, 1=charge battery only, 2=charge and sell",
                     "goodwe_flip_sell": "Invert the sell mask bits (bit=1 when price >= threshold instead of <)",
-                    "goodwe_flip_buy": "Invert the buy mask bits (bit=1 when price >= threshold instead of <)"
+                    "goodwe_flip_buy": "Invert the buy mask bits (bit=1 when price >= threshold instead of <)",
+                    "max_grid_power_kw": "Maximum power available from grid (kW). Used to cap charging rate.",
+                    "max_charging_power_kw": "Maximum battery charging power (kW).",
+                    "required_daily_energy_kwh": "Fallback daily energy consumption (kWh) when consumption entity is unavailable.",
+                    "battery_capacity_kwh": "Total usable battery capacity (kWh).",
+                    "pv_forecast_entity": "Sensor providing expected PV production for tomorrow (kWh). Leave empty to assume 0.",
+                    "consumption_entity": "Sensor providing historical daily energy consumption (kWh). Leave empty to use required daily energy.",
+                    "soc_entity": "Sensor providing current battery state of charge (%). Leave empty to assume 0%."
                 }
             }
         },
